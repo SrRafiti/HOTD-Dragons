@@ -28,6 +28,7 @@ jobs:
           gradle-version: '8.1.1'
 
       - name: Build mod
+        working-directory: HOTD-Dragons-Caraxes-v0.1
         run: gradle build --stacktrace
 
       - name: Upload compiled JAR
@@ -35,5 +36,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: HOTD-Dragons-Caraxes-v0.1
-          path: build/libs/*.jar
+          path: HOTD-Dragons-Caraxes-v0.1/build/libs/*.jar
           if-no-files-found: error
