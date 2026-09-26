@@ -1,0 +1,43 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL=""
+
+[[mods]]
+modId="hotddragons"
+version="${file.jarVersion}"
+displayName="HOTD Dragons: Caraxes v0.2"
+authors="Rafiti + OpenAI"
+description='''
+A fan-made Java addon prototype built for Forge 1.20.1.
+Caraxes v0.2 adds an addon-owned growth system and rider-seat positioning while
+still using Saint's Dragons as the temporary flight/combat engine.
+'''
+
+[[dependencies.hotddragons]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.10,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.hotddragons]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.hotddragons]]
+modId="saintsdragons"
+mandatory=true
+versionRange="[0.9.76,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.hotddragons]]
+modId="geckolib"
+mandatory=true
+versionRange="[4.8.4,)"
+ordering="AFTER"
+side="BOTH"
