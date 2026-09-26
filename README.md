@@ -1,4 +1,4 @@
-# HOTD Dragons — Caraxes v0.2
+# HOTD Dragons — Caraxes v0.2.1
 
 Experimental Forge 1.20.1 addon built on top of Saint's Dragons 0.9.76.
 
@@ -19,7 +19,7 @@ Experimental Forge 1.20.1 addon built on top of Saint's Dragons 0.9.76.
 - Saint's Dragons 0.9.76+
 - GeckoLib 4.8.4+
 
-## v0.2 test checklist
+## v0.2.1 test checklist
 
 1. Spawn a brand-new Caraxes. It should be noticeably smaller than the v0.1 adult.
 2. Mount it. The player should now sit close to the shoulder/base-of-neck area instead of floating far above it.
@@ -28,8 +28,15 @@ Experimental Forge 1.20.1 addon built on top of Saint's Dragons 0.9.76.
 5. Leave and re-enter the world. Growth progress should be preserved.
 6. Let one reach adulthood and confirm its final size matches the old v0.1 model scale.
 
-## Known v0.2 limitations
+## Known v0.2.1 limitations
 
 Caraxes still temporarily inherits Ignivorus' flight and combat machinery. That means Ignivorus-specific attacks such as the ground/rock ability can still appear. Those are scheduled to be replaced by Caraxes-specific fire, bite and aerial attacks after rider geometry and growth are stable.
 
 The current dragon mesh is still a technical blockout. The detailed Caraxes model comes after this systems pass.
+
+## v0.2.2 test notes
+
+- The inherited Ignivorus rider controller uses a fixed seat around Y=5.2 / Z=12.5. v0.2.2 corrects the player position after Saint's controller runs.
+- Mount Caraxes normally. You should see `[HOTD Dragons v0.2.2] Asiento de Caraxes activo` once when mounting.
+- To test growth, DISMOUNT first. Right-click Caraxes with blaze powder. Each use adds 25% growth.
+- To reset growth, while ON FOOT right-click Caraxes with charcoal. Shift is no longer required.
