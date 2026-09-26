@@ -27,14 +27,34 @@ jobs:
         with:
           gradle-version: '8.1.1'
 
+      - name: Find Gradle project
+        id: project
+        shell: bash
+        run: |
+          SETTINGS_FILE="$(find . \( -name settings.gradle -o -name settings.gradle.kts \) -print -quit)"
+
+          if [ -z "$SETTINGS_FILE" ]; then
+            echo "ERROR: No se encontró settings.gradle"
+            echo "Contenido del repositorio:"
+            find . -maxdepth 4 -type f
+            exit 1
+          fi
+
+          PROJECT_DIR="$(dirname "$SETTINGS_FILE")"
+
+          echo "Encontrado proyecto Gradle en: $PROJECT_DIR"
+          echo "dir=$PROJECT_DIR" >> "$GITHUB_OUTPUT"
+
+          echo "Archivos del proyecto:"
+          ls -la "$PROJECT_DIR"
+
       - name: Build mod
-        working-directory: HOTD-Dragons-Caraxes-v0.1
-        run: gradle build --stacktrace
+        run: gradle -p "${{ steps.project.outputs.dir }}" build --stacktrace
 
       - name: Upload compiled JAR
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: HOTD-Dragons-Caraxes-v0.1
-          path: HOTD-Dragons-Caraxes-v0.1/build/libs/*.jar
+          path: ${{ steps.project.outputs.dir }}/build/libs/*.jar
           if-no-files-found: error
